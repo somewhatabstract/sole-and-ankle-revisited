@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
-import { COLORS } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
@@ -40,12 +40,12 @@ const MenuNav = styled.nav`
   flex-direction: column;
   gap: 22px;
   font-size: 18px;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--weight-medium);
   margin: auto 0;
 `;
 
 const MenuLink = styled.a`
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   text-decoration: none;
   text-transform: uppercase;
 
@@ -54,7 +54,7 @@ const MenuLink = styled.a`
   }
 
   &:visited {
-    color: ${COLORS.secondary};
+    color: var(--color-primary);
   }
 `;
 
@@ -67,36 +67,45 @@ const Footer = styled.footer`
 const FooterLink = styled.a`
   font-size: 14px;
   text-decoration: none;
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
 
   &:hover {
     text-decoration: underline;
   }
 
   &:visited {
-    color: ${COLORS.secondary};
+    color: var(--color-primary);
   }
 `;
 
 const CloseButton = styled(UnstyledButton)`
   position: absolute;
   top: 24px;
-  right: 16px;
+  right: 32px;
+
+  @media ${QUERIES.phoneAndDown} {
+    right: 16px;
+  }
 `;
 
 const Overlay = styled(DialogOverlay)`
-  background-color: white;
+  background-color: var(--color-modal-background);
   height: 100%;
-  width: 300px;
+  width: 100%;
   position: fixed;
   top: 0;
   right: 0;
 `;
 
 const Content = styled(DialogContent)`
+  background-color: var(--color-white);
   padding: 32px;
   display: flex;
   height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
   flex-direction: column;
   justify-content: space-between;
 `;
