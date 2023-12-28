@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
+import { QUERIES } from '../../constants';
+
 import Header from '../Header';
 import ShoeIndex from '../ShoeIndex';
 
@@ -18,11 +20,15 @@ const App = () => {
 };
 
 const AppWrapper = styled.div`
-  min-width: 300px;
+  min-width: 350px;
 `;
 
 const Main = styled.main`
   padding: 64px 32px;
+
+  @media ${QUERIES.tabletAndDown} {
+    padding: 40px 32px;
+  }
 `;
 
 export default App;
